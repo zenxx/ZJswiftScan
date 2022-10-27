@@ -22,12 +22,16 @@ public struct LBXScanResult {
 
     /// 码在图像中的位置
     public var arrayCorner: [AnyObject]?
+    
+    /// 码在图像中的尺寸
+    public var bounds: CGRect?
 
-    public init(str: String?, img: UIImage?, barCodeType: String?, corner: [AnyObject]?) {
+    public init(str: String?, img: UIImage?, barCodeType: String?, corner: [AnyObject]?, bounds: CGRect?) {
         strScanned = str
         imgScanned = img
         strBarCodeType = barCodeType
         arrayCorner = corner
+        self.bounds = bounds
     }
 }
 
@@ -183,7 +187,8 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
             arrayResult.append(LBXScanResult(str: code.stringValue,
                                              img: UIImage(),
                                              barCodeType: code.type.rawValue,
-                                             corner: code.corners as [AnyObject]?))
+                                             corner: code.corners as [AnyObject]?,
+                                             bounds: code.bounds))
             #endif
         }
 
