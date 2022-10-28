@@ -187,7 +187,7 @@ open class LBXScanWrapper: NSObject,AVCaptureMetadataOutputObjectsDelegate {
             arrayResult.append(LBXScanResult(str: code.stringValue,
                                              img: UIImage(),
                                              barCodeType: code.type.rawValue,
-                                             corner: code.corners as [AnyObject]?,
+                                             corner: code.corners,
                                              bounds: code.bounds))
             #endif
         }
