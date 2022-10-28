@@ -139,7 +139,7 @@ open class LBXScanViewController: UIViewController {
         if let result = arrayResult.first {
             delegate.scanFinished(scanResult: result, error: nil)
         } else {
-            let result = LBXScanResult(str: nil, img: nil, barCodeType: nil, corner: nil)
+            let result = LBXScanResult(str: nil, img: nil, barCodeType: nil, corner: nil, bounds: nil)
             delegate.scanFinished(scanResult: result, error: "no scan result")
         }
     }
